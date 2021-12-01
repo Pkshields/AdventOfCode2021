@@ -22,11 +22,7 @@ fun countNumberOfDepthIncreases(depths: List<Int>) =
     depths.zipWithNext().count { it.second > it.first }
 
 fun countNumberOfDepthIncreasesUsingSlidingWindow(depths: List<Int>) =
-    depths.zipWithNextTwo()
-        .map { it.first + it.second + it.third }
+    depths.windowed(3)
+        .map { it.sum() }
         .zipWithNext()
         .count { it.second > it.first }
-
-private fun List<Int>.zipWithNextTwo() =
-    this.zipWithNext()
-        .zipWithNext { one, two -> Triple(one.first, one.second, two.second) }
