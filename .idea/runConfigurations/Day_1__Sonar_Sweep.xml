@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Day 1: Sonar Sweep" type="JetRunConfigurationType">
+    <option name="MAIN_CLASS_NAME" value="dev.paulshields.aoc.Day1Kt" />
+    <module name="AdventOfCode2021.main" />
+    <shortenClasspath name="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
