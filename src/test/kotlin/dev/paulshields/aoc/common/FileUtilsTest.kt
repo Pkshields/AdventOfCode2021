@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test
 
 class FileUtilsTest {
     private val readFileAsStringTestFileLocation = "/ReadFileAsStringTestFile.txt"
+    private val readFileAsStringWithWhitespaceTestFileLocation = "/ReadFileAsStringTestFileWithWhitespace.txt"
     private val readFileAsStringListTestFileLocation = "/ReadFileAsStringListTestFile.txt"
     private val brokenFileLocation = "/FilethatDoesNotExist.txt"
     private val contentsOfReadFileAsStringTestFile = "2020 was not a good year!"
@@ -18,6 +19,13 @@ class FileUtilsTest {
         @Test
         fun `should read contents of file`() {
             val contents = readFileAsString(readFileAsStringTestFileLocation)
+
+            assertThat(contents).isEqualTo(contentsOfReadFileAsStringTestFile)
+        }
+
+        @Test
+        fun `should trim contents of file`() {
+            val contents = readFileAsString(readFileAsStringWithWhitespaceTestFileLocation)
 
             assertThat(contents).isEqualTo(contentsOfReadFileAsStringTestFile)
         }

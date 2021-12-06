@@ -6,6 +6,7 @@ fun readFileAsString(filePath: String) = anyObject
     .javaClass
     .getResource(filePath)
     ?.readText()
+    ?.trim()
     ?: ""
 
 fun readFileAsStringList(filePath: String) = readFileAsString(filePath)
