@@ -17,7 +17,7 @@ fun main() {
     val result = findSizeOfBasins(heightMap)
         .sortedDescending()
         .take(3)
-        .fold(1) { accumulator, basinSize -> accumulator * basinSize}
+        .fold(1) { accumulator, basinSize -> accumulator * basinSize }
 
     println("The product of the largest 3 basin sizes is $result")
 }
