@@ -3,6 +3,7 @@ package dev.paulshields.aoc
 import assertk.assertThat
 import assertk.assertions.containsExactly
 import assertk.assertions.isEqualTo
+import dev.paulshields.aoc.common.Point
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 

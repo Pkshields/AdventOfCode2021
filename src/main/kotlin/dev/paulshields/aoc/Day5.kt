@@ -4,6 +4,7 @@
 
 package dev.paulshields.aoc
 
+import dev.paulshields.aoc.common.Point
 import dev.paulshields.aoc.common.readFileAsStringList
 
 fun main() {
@@ -15,7 +16,7 @@ fun main() {
         it.split(" -> ").map {
             it.split(",")
                 .mapNotNull { it.toIntOrNull() }
-                .let(Point::fromList)
+                .let(::pointFromList)
         }.let(LineSegment::fromList)
     }
 
@@ -35,12 +36,6 @@ fun countPointsWhereLinesOverlap(lineSegments: List<LineSegment>) =
         .filter { it.value > 1 }
         .count()
 
-data class Point(val x: Int, val y: Int) {
-    companion object {
-        fun fromList(xy: List<Int>) = Point(xy.component1(), xy.component2())
-    }
-}
-
 data class LineSegment(val start: Point, val end: Point) {
     companion object {
         fun fromList(xy: List<Point>) = LineSegment(xy.component1(), xy.component2())
@@ -56,3 +51,5 @@ data class LineSegment(val start: Point, val end: Point) {
 }
 
 private fun directionlessRange(start: Int, end: Int) = if (start < end) (start..end) else (start downTo end)
+
+private fun pointFromList(xy: List<Int>) = Point(xy.component1(), xy.component2())
