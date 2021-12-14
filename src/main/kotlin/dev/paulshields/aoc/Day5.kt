@@ -16,7 +16,7 @@ fun main() {
         it.split(" -> ").map {
             it.split(",")
                 .mapNotNull { it.toIntOrNull() }
-                .let(::pointFromList)
+                .let(Point::fromList)
         }.let(LineSegment::fromList)
     }
 
@@ -51,5 +51,3 @@ data class LineSegment(val start: Point, val end: Point) {
 }
 
 private fun directionlessRange(start: Int, end: Int) = if (start < end) (start..end) else (start downTo end)
-
-private fun pointFromList(xy: List<Int>) = Point(xy.component1(), xy.component2())
