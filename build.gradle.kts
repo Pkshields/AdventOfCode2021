@@ -5,7 +5,7 @@ group = "dev.paulshields"
 version = "1.0-SNAPSHOT"
 
 plugins {
-    kotlin("jvm") version "1.5.32"
+    kotlin("jvm") version "1.6.10"
 
     id("io.gitlab.arturbosch.detekt").version("1.18.1")
     id("org.jlleitschuh.gradle.ktlint").version("10.2.0")

@@ -54,13 +54,13 @@ private fun iterateOctopusesOnce(octopusEnergyGrid: Map<Point, Int>): Map<Point,
     val octopuses = octopusEnergyGrid.toMutableMap()
     val flashedOctopuses = mutableListOf<Point>()
 
-    octopuses.keys.forEach { octopuses.incrementValue(it) }
+    octopuses.keys.forEach { octopuses.incrementValueIfAvailable(it) }
     var flashingOctopuses = octopuses.filter { it.value > 9 }
 
     while (flashingOctopuses.isNotEmpty()) {
         flashingOctopuses
             .flatMap { getAllAdjacentPoints(it.key) }
-            .forEach { octopuses.incrementValue(it) }
+            .forEach { octopuses.incrementValueIfAvailable(it) }
 
         flashedOctopuses.addAll(flashingOctopuses.keys)
         flashingOctopuses = octopuses.filter { it.value > 9 && !flashedOctopuses.contains(it.key) }
@@ -83,7 +83,7 @@ private fun getAllAdjacentPoints(point: Point) = listOf(
     Point(point.x + 1, point.y),
     Point(point.x + 1, point.y + 1))
 
-private fun MutableMap<Point, Int>.incrementValue(key: Point) {
+private fun MutableMap<Point, Int>.incrementValueIfAvailable(key: Point) {
     if (contains(key)) {
         this[key] = this[key]?.plus(1) ?: 0
     }
