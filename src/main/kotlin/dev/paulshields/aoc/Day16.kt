@@ -15,7 +15,7 @@ fun main() {
     println("Sum of all packet versions is $packetVersionsSum")
 
     val resultFromBitsPacket = calculateResultFromAllBitsPackets(packetTransmission).first()
-    println("The final calcualted result from the BITS packets is $resultFromBitsPacket")
+    println("The final calculated result from the BITS packets is $resultFromBitsPacket")
 }
 
 fun sumAllVersionNumbersInBitsPackets(packetTransmissionAsHex: String) =
