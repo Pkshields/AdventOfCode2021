@@ -5,6 +5,7 @@
 package dev.paulshields.aoc
 
 import dev.paulshields.aoc.common.Point
+import dev.paulshields.aoc.common.extractGroups
 import dev.paulshields.aoc.common.readFileAsString
 
 fun main() {
@@ -76,5 +77,3 @@ private fun parseTransparentPaperSheet(sheet: String): Pair<List<Point>, List<Fo
 }
 
 data class Fold(val line: Int, val direction: String)
-
-private fun Regex.extractGroups(input: String) = this.find(input)?.groups?.drop(1)?.mapNotNull { it?.value } ?: emptyList()
